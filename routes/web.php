@@ -18,8 +18,12 @@ Route::get('/', function () {
 });
 
 
-Route::get('/test', function () {
-    return 'aaaaaa';
+Route::group(['prefix' => 'Login', 'middleware' =>['api']], function () {
+
+    Route::get('/index',"LoingContrroller@index");
+    Route::get('/demo','LoginController@demo');
 });
+Route::get('/dologin', 'LoginController@dologin');// ceshi
+Route::get('/Login','LoginController@login');
 
 
