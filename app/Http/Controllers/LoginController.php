@@ -7,7 +7,6 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 
 
-
 class LoginController extends BaseController
 {
    public function login(){
@@ -21,12 +20,12 @@ class LoginController extends BaseController
 //		    setcookie('token',$token,time()*24*3600);
 		    $code =  1;
 		    $message = 'Success';
-            echo json_encode([
-                'token'=>$token,
-                'code'=>$code,
-                'message'=>$message,
-
-            ]);
+		    $returnarr = [
+		        'status'=>1,
+                'message'=>"获取成功",
+                'data'=>$token
+            ];
+            echo json_encode($returnarr);
             exit;
 
         }else{
